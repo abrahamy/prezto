@@ -11,3 +11,17 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+local custom_files=(
+  "aliases.zsh"
+  "env.zsh"
+  "functions.zsh"
+  "secret.zsh"
+)
+
+for file in "${custom_files[@]}"; do
+  if [[ -f "$ZDOTDIR/$file" ]]; then
+    source "$ZDOTDIR/$file"
+  fi
+done
+
